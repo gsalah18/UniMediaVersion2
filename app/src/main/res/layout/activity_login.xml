@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Views.Activites.LoginActivity">
+    <data>
+        <variable
+            name="loginVM"
+            type="com.gsalah.uni_mediaversion2.ViewModels.LoginVM"/>
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    >
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/mainlogo" />
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/id_edt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="200dp"
+            android:padding="5dp"
+            app:addTextChangedListener="@{loginVM.idTextWatcher}"
+            android:hint="@string/id_hint" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/password_edt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="200dp"
+            android:inputType="textPassword"
+            android:padding="5dp"
+            app:addTextChangedListener="@{loginVM.passwordTextWatcher}"
+            android:hint="@string/password_hint" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/login"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:onClick="@{loginVM::LoginClick}"
+        android:background="@drawable/login_btn_shape"/>
+
+</LinearLayout>
+</layout>
